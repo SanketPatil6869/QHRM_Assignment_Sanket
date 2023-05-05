@@ -1,0 +1,53 @@
+﻿@model IEnumerable<OHRM_Sanket_Patil.Models.Product>
+
+@{
+    ViewData["Title"] = "Index";
+}
+
+<h1>Products</h1>
+
+<p>
+    <a asp-action="Create">Create New</a>
+</p>
+<table class="table">
+    <thead>
+        <tr>
+            <th>
+                @Html.DisplayNameFor(model => model.id)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.product)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.description)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.created)
+            </th>
+            <th></th>
+        </tr>
+    </thead>
+    <tbody>
+@foreach (var item in Model) {
+        <tr>
+            <td>
+                @Html.DisplayFor(modelItem => item.id)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.product)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.description)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.created)
+            </td>
+            <td>
+                @Html.ActionLink("Edit", "Edit", new {  id=item.id  })
+                @Html.ActionLink("Details", "Details", new {  id=item.id  }) |
+                @Html.ActionLink("Delete", "Delete", new {  id=item.id  })
+            </td>
+        </tr>
+}
+    </tbody>
+</table>
